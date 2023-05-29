@@ -6,7 +6,9 @@ body{
     height: 100vh;
 }
 .box{
-    width: 435px;
+    width: 405px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin: 0 auto;
     height: 300px;
 }
