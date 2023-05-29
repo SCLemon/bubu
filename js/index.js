@@ -22,7 +22,8 @@ window.onload=function(){
             sendStatus(){
                 var btn =document.getElementById("btn");
                 this.user =prompt("請輸入 PassKey：");
-                if((this.user.trim()!="" || this.user!=undefined) && this.sendEnabled){
+                console.log(this.user)
+                if((this.user.trim()!="" && this.user!=undefined) && this.sendEnabled){
                     this.sendEnabled=false;
                     btn.innerText="傳送中";
                     var formData = new FormData();
