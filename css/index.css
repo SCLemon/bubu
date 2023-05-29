@@ -2,9 +2,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    width:100vw;
+    height: 100vh;
 }
 .box{
-    width: 475px;
+    width: 435px;
     margin: 0 auto;
     height: 300px;
 }
