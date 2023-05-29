@@ -1,4 +1,5 @@
 body{
+    background-image: url(../bg.jpeg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +51,7 @@ body{
 }
 .btn:hover{
     cursor: pointer;
-    background: gray;
+    background: rgb(196, 196, 196);
     color: white;
-    border: 1px solid gray;
+    border: 1px solid rgba(255, 255, 255, 0.75);
 }
