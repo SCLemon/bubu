@@ -11,11 +11,10 @@ body{
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
-    height: 300px;
 }
 .main{
     width: 100%;
-    height: 100%;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -54,4 +53,7 @@ body{
     background: rgb(196, 196, 196);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.75);
+}
+iframe{
+    margin-top: 20px;
 }

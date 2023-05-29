@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
     <link rel="manifest" href="ico/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
@@ -41,8 +41,9 @@
                 <p>時間：{{list.time}}</p>
                 <p>飲食：{{list.food}}</p>        
             </div>
-            <div class="btn" id="btn" @click="(this.innerText=='已完成' || !sendEnabled)?'':sendStatus()" v-text="list.status=='已完成'?'已完成':'完成按鈕'"></div>
+            <div class="btn" id="btn" @click="(this.innerText=='已完成' || !sendEnabled)?'':sendStatus()" v-text="(list.status!=undefined && list.status!='')?'已完成':'完成按鈕'"></div>
         </div>
+        <iframe width="364" height="204.75" src="https://www.youtube.com/embed/AxNrzNg8s8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </body>
 </html>
