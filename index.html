@@ -41,7 +41,7 @@
                 <p>時間：{{list.time}}</p>
                 <p>飲食：{{list.food}}</p>        
             </div>
-            <div class="btn" id="btn" @click="this.innerText=='已完成'?'':sendStatus()" v-text="list.status=='已完成'?'已完成':'完成按鈕'"></div>
+            <div class="btn" id="btn" @click="(this.innerText=='已完成' || !sendEnabled)?'':sendStatus()" v-text="list.status=='已完成'?'已完成':'完成按鈕'"></div>
         </div>
     </div>
 </body>

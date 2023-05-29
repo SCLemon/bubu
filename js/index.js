@@ -16,6 +16,7 @@ window.onload=function(){
                 .then(res=>res.json())
                 .then(function(res){
                     vm.list = res;
+                    if(res.status=="已完成") vm.sendEnabled=false;
                 });
             },
             sendStatus(){
