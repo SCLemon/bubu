@@ -4,7 +4,8 @@ window.onload=function(){
         data:{
             user:'',
             sendEnabled:true,
-            list:{}
+            list:{},
+            gotten:false
         },
         methods:{
             getData(){
@@ -16,6 +17,7 @@ window.onload=function(){
                 .then(res=>res.json())
                 .then(function(res){
                     vm.list = res;
+                    vm.gotten=true;
                     if(res.status!="") vm.sendEnabled=false;
                 });
             },
