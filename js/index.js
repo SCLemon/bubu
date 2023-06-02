@@ -21,9 +21,10 @@ window.onload=function(){
             },
             sendStatus(){
                 var btn =document.getElementById("btn");
-                this.user =prompt("請輸入 PassKey：");
+                this.user =prompt("請輸入 PassWord：");
                 console.log(this.user)
                 if((this.user.trim()!="" && this.user!=undefined) && this.sendEnabled){
+                    var load =0;
                     this.sendEnabled=false;
                     btn.innerText="傳送中";
                     var formData = new FormData();
@@ -33,9 +34,17 @@ window.onload=function(){
                         body:formData,
                         redirect:"follow"
                     }
+                    const timer = setInterval(function(){
+                        var plus = Math.random()*12.5;
+                        load+=plus;
+                        btn.style="background-size:"+load+"%; color:gray; ; border:1px solid rgb(196,196,196);";
+                        if(load>80) clearInterval(timer);
+                    },145);
                     fetch("https://script.google.com/macros/s/AKfycbzfGb74JNKIHQdFA-KQBixgdUemxgV4RlEYtYX6y-WAb743EvYAgEASkgiqwD8HAZMNxg/exec",config)
                     .then(res=>res.text())
                     .then(function(res){
+                        clearInterval(timer);
+                        btn.style="background-size:100%;";
                         if(res=="success"){
                             btn.innerText="已完成";
                             vm.sendEnabled=false;

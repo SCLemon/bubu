@@ -47,12 +47,15 @@ body{
     margin-top: 5px;
     width: 80%;
     font-size: 24px;
+    background: url(../load.png);
+    background-size: 0%;
+    background-repeat: no-repeat;
 }
 .btn:hover{
     cursor: pointer;
-    background: rgb(196, 196, 196);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    /* background: rgb(196, 196, 196); */
+    color: gray;
+    border: 1px solid rgb(196, 196, 196);
 }
 .contact{
     width: 100%;
