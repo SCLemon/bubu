@@ -39,7 +39,8 @@
             <div class="content">
                 <p>日期：{{list.date}}</p>
                 <p>時間：{{list.time}}</p>
-                <p>飲食：{{list.food}}</p>
+                <p>規劃用量：{{list.food}}</p>
+                <p>建議用量：{{isNaN(num)?'':num+' ('+cal+' kcal)'}}</p>
                 <p>上次餵食：{{list.last}}</p>           
             </div>
             <div class="btn" id="btn" @click="(this.innerText=='已完成' || !sendEnabled || list.food=='無' || !gotten )?'':sendStatus()" v-text="(list.status!=undefined && list.status!='' || list.food=='無')?'已完成':gotten?'完成按鈕':'讀取中...'"></div>

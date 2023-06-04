@@ -5,9 +5,22 @@ window.onload=function(){
             user:'',
             sendEnabled:true,
             list:{},
-            gotten:false
+            gotten:false,
+        },
+        computed:{
+            cal(){
+                var day =parseInt((new Date().getTime()-new Date(2023,2,31).getTime())/1000/3600/24);
+                var x = day<4*30?3:day<8*30?2:1.8;
+                return parseInt(Math.pow(70*this.list.weight,0.75)*x/this.list.hasFood);
+            },
+            num(){
+                return parseInt(this.cal / this.list.unit);
+            }
         },
         methods:{
+            init(){
+                this.getData();
+            },
             getData(){
                 var config={
                     method:"GET",
@@ -63,5 +76,5 @@ window.onload=function(){
             }
         }
     })
-    vm.getData();
+    vm.init();
 }
