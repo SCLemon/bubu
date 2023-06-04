@@ -6,12 +6,13 @@ window.onload=function(){
             sendEnabled:true,
             list:{},
             gotten:false,
+            day:0,
         },
         computed:{
             cal(){
-                var day =parseInt((new Date().getTime()-new Date(2023,2,31).getTime())/1000/3600/24);
-                var x = day<4*30?3:day<8*30?2:1.8;
-                return parseInt(Math.pow(70*this.list.weight,0.75)*x/this.list.hasFood);
+                this.day =parseInt((new Date().getTime()-new Date(2023,2,31).getTime())/1000/3600/24);
+                var x = this.day<4*30?2:this.day<8*30?1.8:1.7;
+                return parseInt(70*Math.pow(this.list.weight,0.75)*x/this.list.hasFood);
             },
             num(){
                 return parseInt(this.cal / this.list.unit);
