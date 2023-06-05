@@ -35,11 +35,30 @@ window.onload=function(){
                     if(res.status!="") vm.sendEnabled=false;
                 });
             },
+            createCookie(){
+                var date =new Date((new Date().getTime()+86400*1000*365)).toUTCString();
+                document.cookie="password="+this.user+";expires="+date+";"
+            },
+            hasCookie(){
+                var flag=false;
+                var cookies = document.cookie.split(";");
+                for(var i=0;i<cookies.length;i++){
+                    var key = cookies[i].split("=")[0].trim();
+                    var value = cookies[i].split("=")[1].trim();
+                    if(key=="password"){
+                        this.user=value;
+                        flag=true;
+                        break;
+                    }
+                }
+                return flag;
+            },
             sendStatus(){
                 var btn =document.getElementById("btn");
-                this.user =prompt("請輸入 PassWord：");
-                console.log(this.user)
-                if((this.user.trim()!="" && this.user!=undefined) && this.sendEnabled){
+                var flag =true;
+                if(!this.hasCookie()) this.user =prompt("請輸入 PassWord：");
+                else flag=confirm("快速傳送？");
+                if((this.user.trim()!="" && this.user!=undefined) && this.sendEnabled && flag){
                     var load =0;
                     this.sendEnabled=false;
                     btn.innerText="傳送中";
@@ -62,6 +81,7 @@ window.onload=function(){
                         clearInterval(timer);
                         btn.style="background-size:100%;";
                         if(res=="success"){
+                            if(!vm.hasCookie()) vm.createCookie();
                             btn.innerText="已完成";
                             vm.sendEnabled=false;
                         }
