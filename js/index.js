@@ -44,7 +44,7 @@ window.onload=function(){
                 var cookies = document.cookie.split(";");
                 for(var i=0;i<cookies.length;i++){
                     var key = cookies[i].split("=")[0].trim();
-                    var value = cookies[i].split("=")[1].trim();
+                    var value = cookies[i].split("=")[1];
                     if(key=="password"){
                         this.user=value;
                         flag=true;
