@@ -21,6 +21,7 @@ window.onload=function(){
         methods:{
             init(){
                 this.getData();
+                if(this.hasCookie() && this.user!='' && this.user!=undefined) this.createCookie();
             },
             getData(){
                 var config={
