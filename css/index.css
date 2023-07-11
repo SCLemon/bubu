@@ -32,6 +32,15 @@ body{
     width: 80%;
     border-bottom: 1px solid gray;
 }
+.refresh{
+    position: absolute;
+    font-size:26px;
+    top:10px;
+    right: 14px;
+}
+.refresh:hover{
+    cursor: pointer;
+}
 .calendar{
     background-image: url(../calendar.png);
     background-size: contain;

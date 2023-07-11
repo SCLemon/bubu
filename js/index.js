@@ -7,6 +7,7 @@ window.onload=function(){
             list:{},
             gotten:false,
             day:0,
+            unlock:false,
         },
         computed:{
             cal(){
@@ -23,7 +24,9 @@ window.onload=function(){
                 this.getData();
                 if(this.hasCookie() && this.user!='' && this.user!=undefined) this.createCookie();
             },
-            getData(){
+            getData(param){
+                var btn =document.getElementById("btn");
+                if(param=='unlock') btn.innerText="重新汲取資料中...";
                 var config={
                     method:"GET",
                     redirect:"follow"
@@ -54,6 +57,39 @@ window.onload=function(){
                 }
                 return flag;
             },
+            doUnlock(){
+                var locker =document.getElementById("locker");
+                var flag =true;
+                if(!this.hasCookie()) this.user =prompt("請輸入 PassWord：");
+                else flag=confirm("快速傳送？");
+                if(this.user.trim()!="" && this.user!=undefined && flag){
+                    btn.innerText="資料刷新中...";
+                    locker.classList.add("fa-spin");
+                    this.unlock=true;
+                    var formData=new FormData();
+                    formData.append("user",this.user);
+                    formData.append("unlock",this.unlock);
+                    var config={
+                        method:"POST",
+                        body:formData,
+                        redirect:"follow"
+                    }
+                    fetch("https://script.google.com/macros/s/AKfycbzfGb74JNKIHQdFA-KQBixgdUemxgV4RlEYtYX6y-WAb743EvYAgEASkgiqwD8HAZMNxg/exec",config)
+                    .then(res=>res.text())
+                    .then(function(res){
+                        locker.classList.remove("fa-spin");
+                        this.unlock=false;
+                        if(res=="success") {
+                            alert("刷新成功！");
+                            vm.getData("unlock");
+                        }
+                        else{
+                            alert("刷新失敗！");
+                            vm.getData("unlock");
+                        }
+                    });
+                }
+            },
             sendStatus(){
                 var btn =document.getElementById("btn");
                 var flag =true;
@@ -65,6 +101,7 @@ window.onload=function(){
                     btn.innerText="傳送中";
                     var formData = new FormData();
                     formData.append("user",this.user);
+                    formData.append("unlock",this.unlock);
                     var config={
                         method:"POST",
                         body:formData,
@@ -92,9 +129,7 @@ window.onload=function(){
                         }
                     });
                 }
-                else{
-                    alert("資料不可為空");
-                }
+                else alert("資料不可為空");
             }
         }
     })
