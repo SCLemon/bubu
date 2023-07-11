@@ -61,9 +61,9 @@ window.onload=function(){
                 var locker =document.getElementById("locker");
                 var flag =true;
                 if(!this.hasCookie()) this.user =prompt("請輸入 PassWord：");
-                else flag=confirm("快速傳送？");
+                else flag=confirm("快速解除鎖定？");
                 if(this.user.trim()!="" && this.user!=undefined && flag){
-                    btn.innerText="資料刷新中...";
+                    btn.innerText="解除鎖定中...";
                     locker.classList.add("fa-spin");
                     this.unlock=true;
                     var formData=new FormData();
@@ -80,11 +80,11 @@ window.onload=function(){
                         locker.classList.remove("fa-spin");
                         this.unlock=false;
                         if(res=="success") {
-                            alert("刷新成功！");
+                            alert("解除成功！");
                             vm.getData("unlock");
                         }
                         else{
-                            alert("刷新失敗！");
+                            alert("解除失敗！");
                             vm.getData("unlock");
                         }
                     });
