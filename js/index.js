@@ -37,6 +37,7 @@ window.onload=function(){
                     vm.list = res;
                     vm.gotten=true;
                     if(res.status!="") vm.sendEnabled=false;
+                    btn.innerText=(vm.list.status!=undefined && vm.list.status!='' || vm.list.food=='無')?'已完成':vm.gotten?'完成按鈕':'讀取中...'
                 });
             },
             createCookie(){
