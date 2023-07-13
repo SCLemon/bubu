@@ -82,6 +82,7 @@ window.onload=function(){
                         this.unlock=false;
                         if(res=="success") {
                             alert("解除成功！");
+                            vm.sendEnabled=true;
                             vm.getData("unlock");
                         }
                         else{
