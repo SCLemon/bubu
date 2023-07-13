@@ -92,6 +92,9 @@ window.onload=function(){
                     });
                 }
             },
+            banned(){
+                alert("資料無需刷新！");
+            },
             sendStatus(){
                 var btn =document.getElementById("btn");
                 var flag =true;

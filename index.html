@@ -35,7 +35,7 @@
 <body>
     <div id="box" class="box" v-cloak>
         <div class="main">
-            <i id="locker" class="fa-solid fa-arrows-rotate refresh" @click="doUnlock()"></i>
+            <i id="locker" class="fa-solid fa-arrows-rotate refresh" @click="sendEnabled?banned():doUnlock()"></i>
             <h1>Bubu 飲食管理</h1>
             <div class="content">
                 <div class="calendar">{{day}}</div>
