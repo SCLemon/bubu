@@ -134,7 +134,7 @@ window.onload=function(){
                         }
                     });
                 }
-                else alert("資料不可為空");
+                else this.user!=''? "":alert("資料不可為空");
             }
         }
     })
