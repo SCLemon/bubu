@@ -79,7 +79,7 @@ window.onload=function(){
                     .then(res=>res.text())
                     .then(function(res){
                         locker.classList.remove("fa-spin");
-                        this.unlock=false;
+                        vm.unlock=false;
                         if(res=="success") {
                             alert("解除成功！");
                             vm.sendEnabled=true;
