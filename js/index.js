@@ -12,7 +12,7 @@ window.onload=function(){
         computed:{
             cal(){
                 this.day =parseInt((new Date().getTime()-new Date(2023,2,31).getTime())/1000/3600/24);
-                var x = this.day<4*30?2.8:this.day<8*30?2.6:2.4;
+                var x = this.day<4*30?2.6:this.day<8*30?2.5:2.4;
                 return parseInt(70*Math.pow(this.list.weight,0.75)*x/this.list.hasFood);
             },
             num(){
